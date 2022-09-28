@@ -1,0 +1,22 @@
+<div class="full-screen d-flex flex-column pt-md-10">
+    <main class="container main-content flex-fill">
+      <div ngbDropdown class="d-inline-block" *ngIf="stateUserInfo">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{stateUserInfo.lastname}}, {{stateUserInfo.firstname}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem (click)="profile()">Profile</button>
+          <button ngbDropdownItem (click)="logout()">Log out</button>
+        </div>
+      </div>
+        <div class="card mx-auto mt-1rem px-0">
+        <div class="card-body pt-2rem pb-3rem px-4">
+          <img src="assets/logo.png" class="image-fluid" alt="Logo">
+          <div class='mt-2 mb-0'>
+            <app-breadcrumb></app-breadcrumb>
+          </div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </main>
+    <app-layout-footer></app-layout-footer>
+  </div>
+  
