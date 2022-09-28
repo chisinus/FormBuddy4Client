@@ -1,13 +1,8 @@
-<footer>
-    <ul class="list-unstyled d-flex flex-column flex-sm-row justify-content-center text-center mb-0">
-        <li class="p-2">
-            <a [routerLink]="['', { outlets: { popup: 'contactUs' } } ]">Contact Us</a>
-        </li>
-        <li class="p-2">
-            <a [routerLink]="['', {outlets: {popup: 'terms'}}]">Terms and Conditions</a>
-            </li>
-        <li class="p-2">
-        <a [routerLink]="['', {outlets: {popup: 'privacy'}}]">Privacy Practice</a>
-        </li>
-    </ul>
-</footer>
+<mat-toolbar color='primary' style="height: 30px">
+    <span class='spacer'></span>
+    <span class="footer-link">© Copyright My Form Buddy 2022</span>
+    <a routerLink="/contactus" routerLinkActive="active" class="footer-link" target="_blank">Contact Us</a>
+    <a routerLink="/terms" routerLinkActive="active" class="footer-link" target="_blank">Terms and Conditions</a>
+    <a routerLink="/privacy" routerLinkActive="active" class="footer-link" target="_blank">Privacy Practice</a>
+    <span class='spacer'></span>
+</mat-toolbar>

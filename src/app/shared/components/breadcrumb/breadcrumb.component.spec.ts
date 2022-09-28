@@ -1,21 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BreadcrumbsComponent } from './breadcrumb.component';
+import { BreadcrumbComponent } from './breadcrumb.component';
+import { BreadcrumbService } from './breadcrumb.service';
 
-describe('BreadcrumbsComponent', () => {
-  let component: BreadcrumbsComponent;
-  let fixture: ComponentFixture<BreadcrumbsComponent>;
+let mockBreadcrumbService: BreadcrumbService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [BreadcrumbsComponent],
-    }).compileComponents();
-  });
+describe('BreadcrumbComponent', () => {
+  let component: BreadcrumbComponent;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BreadcrumbsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    mockBreadcrumbService = {} as BreadcrumbService;
+    component = new BreadcrumbComponent(mockBreadcrumbService);
   });
 
   it('should create', () => {

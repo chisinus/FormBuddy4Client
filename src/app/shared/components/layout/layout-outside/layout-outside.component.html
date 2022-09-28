@@ -1,12 +1,11 @@
-<div class="full-screen d-flex flex-column pt-md-10 ">
-  <main class="container main-content flex-fill">
-    <div class="card mx-auto mt-1rem px-0">
-      <div class="card-body pt-2rem pb-3rem px-4">
-          <app-layout-header></app-layout-header>
-          <router-outlet></router-outlet>
-          <app-layout-footer></app-layout-footer>
-        </div>
-      </div>
+<mat-sidenav-container class="all-wrap" fullscreen>
+  <div class="page-wrap">
+    <app-layout-header></app-layout-header>
+    <main class="content">
+      <router-outlet></router-outlet>
     </main>
-</div>
+    <app-layout-footer></app-layout-footer>
+  </div>
+</mat-sidenav-container>
 
+<!-- https://stackoverflow.com/questions/46722868/sticky-footer-in-angular-2-material -->

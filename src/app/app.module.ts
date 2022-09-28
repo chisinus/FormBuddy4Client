@@ -11,6 +11,9 @@ import { LayoutFooterComponent } from '@shared/components/layout/layout-footer/l
 import { LayoutHeaderComponent } from '@shared/components/layout/layout-header/layout-header.component';
 import { LayoutInsideComponent } from '@shared/components/layout/layout-inside/layout-inside.component';
 import { LayoutOutsideComponent } from '@shared/components/layout/layout-outside/layout-outside.component';
+import { ContactUsComponent } from './modules/misc/contact-us/contact-us.component';
+import { PrivacyComponent } from './modules/misc/privacy/privacy.component';
+import { TermsConditionComponent } from './modules/misc/terms-condition/terms-condition.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { LayoutOutsideComponent } from '@shared/components/layout/layout-outside
     LayoutHeaderComponent,
     LayoutInsideComponent,
     LayoutOutsideComponent,
+    ContactUsComponent,
+    PrivacyComponent,
+    TermsConditionComponent,
   ],
   imports: [
     BrowserModule,
