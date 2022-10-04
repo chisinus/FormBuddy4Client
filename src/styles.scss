@@ -13,6 +13,8 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 900px;
+    margin: auto;
   }
   
   .content {
@@ -26,8 +28,22 @@
   main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     > *:not(router-outlet) {
       flex: 1;
       display: block;
     }
   }
+
+.snackbar-success {
+    background-color:green;
+    color:white;
+    button {background:white; color: blue}
+  }
+
+.snackbar-failed {
+  background-color:red;
+  color:white;
+  button {background:white; color: blue}
+}

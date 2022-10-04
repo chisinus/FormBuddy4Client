@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,10 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false;
   error: string = '';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private snakebar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,5 +26,14 @@ export class LoginComponent implements OnInit {
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  login(): void {
+    let sb = this.snakebar.open('Failed', 'Close', {
+      panelClass: ['snackbar-failed'],
+    });
+    sb.onAction().subscribe(() => {
+      sb.dismiss();
+    });
   }
 }
