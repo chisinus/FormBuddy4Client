@@ -90,5 +90,7 @@
       }
     }
   },
-  "defaultProject": "FormBuddy4Client"
+  "cli": {
+    "analytics": false
+  }
 }

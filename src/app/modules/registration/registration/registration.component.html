@@ -1,1 +1,14 @@
-<p>registration works!</p>
+<mat-horizontal-stepper linear #stepper class="stepper">
+	<mat-step [stepControl]="basicInfoForm" label="Basic Info">
+		<app-reg-basic-info></app-reg-basic-info>
+	</mat-step>
+	<mat-step [stepControl]="securityQuestionForm" label="Security Question">
+		<app-reg-security-question #regSecurityQuestion></app-reg-security-question>
+	</mat-step>
+	<mat-step [stepControl]="loginForm" label="Login">
+		<app-reg-login></app-reg-login>
+	</mat-step>
+	<mat-step label="Confirm">
+		<app-reg-confirmation></app-reg-confirmation>
+	</mat-step>
+</mat-horizontal-stepper>

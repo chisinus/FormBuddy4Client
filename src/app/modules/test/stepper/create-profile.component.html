@@ -1,0 +1,28 @@
+<mat-horizontal-stepper class="stepper" #stepper linear>
+	<mat-step [stepControl]="frmStepOne" label="AAA">
+		<step-one-component #StepOneComponent ></step-one-component>
+	</mat-step>
+	<mat-step label="Basic" state="cloud_download">
+      Step 1
+      <button mat-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step label="Pixels" state="settings">
+      <p>Step 2</p>
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step label="Creative" state="settings">
+      <p>Step 3</p>
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step label="Targeting" state="settings">
+      <p>Step 4</p>
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step label="Review" state="settings">
+      <p>Step 5</p>
+      <button mat-button matStepperPrevious>Previous</button>
+    </mat-step>
+  </mat-horizontal-stepper>
