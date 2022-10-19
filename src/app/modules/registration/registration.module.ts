@@ -7,7 +7,10 @@ import { RegSecurityQuestionComponent } from './reg-security-question/reg-securi
 import { RegLoginComponent } from './reg-login/reg-login.component';
 import { RegConfirmationComponent } from './reg-confirmation/reg-confirmation.component';
 import { RegistrationComponent } from './registration/registration.component';
-
+import { MatStepper, MatStepperModule } from '@angular/material/stepper';
+import { SharedModule } from '@shared/shared.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import { RegistrationComponent } from './registration/registration.component';
     RegSecurityQuestionComponent,
     RegLoginComponent,
     RegConfirmationComponent,
-    RegistrationComponent
+    RegistrationComponent,
   ],
   imports: [
     CommonModule,
-    RegistrationRoutingModule
-  ]
+    RegistrationRoutingModule,
+    SharedModule,
+    MatNativeDateModule,
+  ],
+  providers: [MatDatepickerModule],
 })
-export class RegistrationModule { }
+export class RegistrationModule {}

@@ -14,6 +14,7 @@ import { LayoutOutsideComponent } from '@shared/components/layout/layout-outside
 import { ContactUsComponent } from './modules/misc/contact-us/contact-us.component';
 import { PrivacyComponent } from './modules/misc/privacy/privacy.component';
 import { TermsConditionComponent } from './modules/misc/terms-condition/terms-condition.component';
+import { RegistrationModule } from './modules/registration/registration.module';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,8 @@ import { TermsConditionComponent } from './modules/misc/terms-condition/terms-co
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // ReactiveFormsModule,
-    // FormsModule,
     SharedModule,
+    RegistrationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

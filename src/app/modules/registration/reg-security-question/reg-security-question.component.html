@@ -1,1 +1,17 @@
-<p>reg-security-question works!</p>
+<mat-card>
+	<form [formGroup]="form">
+
+		<mat-form-field>
+			<ma-select formControlName="securityQuestion"
+		</mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Age" formControlName="answer" required>
+        </mat-form-field>
+	
+  	<mat-card-actions>
+			<button mat-raised-button matStepperNext class="nav-btn pull-right">Finish</button>
+		</mat-card-actions>
+
+	</form>
+
+</mat-card>
