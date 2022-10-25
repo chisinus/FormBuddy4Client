@@ -5,10 +5,7 @@ import { RouterModule } from '@angular/router';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { AngularMaterialModule } from '../angular-material.module';
 
-const Components: any[] = [
-  // FBNavigationBarComponent,
-  BreadcrumbComponent,
-];
+const Components: any[] = [BreadcrumbComponent];
 
 const Modules: any[] = [
   CommonModule,
@@ -23,12 +20,7 @@ const Directives: any[] = [];
 const Pipes: any[] = [];
 
 @NgModule({
-  declarations: [
-    ...Components,
-    ...Pipes,
-    ...Directives,
-    // FbNavigationbarComponent
-  ],
+  declarations: [...Components, ...Pipes, ...Directives],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports: [...Modules, ...Components, ...Directives, ...Pipes],
 })

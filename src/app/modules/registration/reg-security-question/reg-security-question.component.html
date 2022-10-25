@@ -1,17 +1,21 @@
 <mat-card>
 	<form [formGroup]="form">
-
-		<mat-form-field>
-			<ma-select formControlName="securityQuestion"
-		</mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Age" formControlName="answer" required>
-        </mat-form-field>
+		<div>
+			<mat-form-field style="width: 400px">
+				<mat-select formControlName="securityQuestion" placeholder="Select One" disableOptionCentering="true">
+					<mat-option *ngFor="let question of securityQuestions" [value]="question">{{question.description}}</mat-option>				
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field style="width: 400px">
+				<input matInput placeholder="Answer" formControlName="answer" required>
+			</mat-form-field>
+		</div>
 	
-  	<mat-card-actions>
-			<button mat-raised-button matStepperNext class="nav-btn pull-right">Finish</button>
+		<mat-card-actions>
+			<button mat-raised-button matStepperPrevious class="nav-btn pull-right">Previous</button>
+			<button mat-raised-button matStepperNext color="primary" class="nav-btn pull-right nextButton" [disabled]="!form.valid">Next</button>
 		</mat-card-actions>
-
 	</form>
-
 </mat-card>

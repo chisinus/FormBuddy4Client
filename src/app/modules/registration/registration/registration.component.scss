@@ -1,0 +1,41 @@
+$success:       #35A255 !default;
+$primary:       #007CBB !default;
+
+::ng-deep.mat-step-header .mat-step-icon-selected {
+   background-color: $primary !important
+}
+
+::ng-deep.mat-step-header .mat-step-icon-state-edit {
+    background-color: $success!important
+}
+                            
+
+   /*
+::ng-deep.mat-step-header .mat-step-icon-done {
+    background-color: transparent !important;
+    color: $success;
+    +.mat-step-label{
+      color: $success !important;
+    }
+  }
+
+// .mat-step-header .mat-step-icon-selected{
+//     // background-color: transparent !important;
+//     background-color: red !important;
+//     color: red !important;
+//     // +.mat-step-label{
+//     //     color: $primary !important;
+//     // }
+// }  
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-edit {
+    background-color: blue !important
+}
+
+.mat-step-header .mat-step-label{
+    color: rgba(0, 0, 0, .54)
+}
+
+.mat-step-header .mat-step-icon {
+    color: rgba(0, 0, 0, .54);
+    background-color: transparent;
+}*/
