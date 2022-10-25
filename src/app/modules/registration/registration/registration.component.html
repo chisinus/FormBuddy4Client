@@ -1,14 +1,15 @@
-<mat-horizontal-stepper linear #stepper class="stepper">
+<mat-horizontal-stepper linear #stepper>
+	<ng-template matStepperIcon="edit">
+		<mat-icon>done</mat-icon>
+	</ng-template>
+
 	<mat-step [stepControl]="basicInfoForm" label="Basic Info">
-		<app-reg-basic-info></app-reg-basic-info>
+		<app-reg-basic-info #RegBasicInfoComponent></app-reg-basic-info>
 	</mat-step>
 	<mat-step [stepControl]="securityQuestionForm" label="Security Question">
-		<app-reg-security-question #regSecurityQuestion></app-reg-security-question>
-	</mat-step>
+		<app-reg-security-question #RegSecurityQuestionComponent></app-reg-security-question>
+	</mat-step> 
 	<mat-step [stepControl]="loginForm" label="Login">
-		<app-reg-login></app-reg-login>
-	</mat-step>
-	<mat-step label="Confirm">
-		<app-reg-confirmation></app-reg-confirmation>
+		<app-reg-login #RegLoginComponent></app-reg-login>
 	</mat-step>
 </mat-horizontal-stepper>

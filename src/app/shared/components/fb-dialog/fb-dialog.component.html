@@ -1,0 +1,10 @@
+<div>
+    <div class="{{titleStyle}}">{{parameter.title}}</div>
+</div>
+
+<div class="message">{{parameter.message}}</div>
+<div style="padding-top: 60px; padding-left: 200px;">
+    <button *ngIf="parameter.showOK" mat-raised-button color="primary" class="nav-btn pull-right" (click)="onOKClick()">OK</button>
+    <span style="padding-left: 30px;"></span>
+    <button *ngIf="parameter.showCancel" mat-raised-button color="primary" class="nav-btn" (click)="onCancelClick()">Cancel</button>
+</div>

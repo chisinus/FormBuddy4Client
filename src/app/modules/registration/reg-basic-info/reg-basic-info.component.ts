@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Gender } from '@shared/models/gener';
+import { Gender } from '@shared/models/code-tables';
 
 @Component({
   selector: 'app-reg-basic-info',
@@ -27,11 +27,26 @@ export class RegBasicInfoComponent implements OnInit {
     firstname: ['', [Validators.required, Validators.maxLength(30)]],
     lastname: ['', [Validators.required, Validators.maxLength(30)]],
     dob: ['', Validators.required],
-    gender: [0, Validators.required],
+    gender: ['', Validators.required],
   });
-  constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      firstname: ['', [Validators.required, Validators.maxLength(30)]],
+      lastname: ['', [Validators.required, Validators.maxLength(30)]],
+      dob: ['', Validators.required],
+      gender: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      firstname: ['', [Validators.required, Validators.maxLength(30)]],
+      lastname: ['', [Validators.required, Validators.maxLength(30)]],
+      dob: ['', Validators.required],
+      gender: ['', Validators.required],
+    });
+  }
 
   onGenderChange(gender: Gender): void {
     console.log('>>> ', gender);
@@ -40,6 +55,6 @@ export class RegBasicInfoComponent implements OnInit {
 
   // form control
   get genderControl() {
-    return this.form.controls['gender'];
+    return this.form?.controls['gender'];
   }
 }

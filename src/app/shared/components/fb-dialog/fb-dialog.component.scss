@@ -1,0 +1,36 @@
+::ng-deep mat-dialog-container {
+    border-top-left-radius: 20px   !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    box-shadow: none !important;
+    padding: 0px !important;
+}
+
+.messageTitle {
+    font: "Roboto Black";
+    font-size: 42px;
+    color: blue;
+    padding-top: 128px;
+    padding-left: 56px;
+}
+
+.errorTitle {
+    @extend .messageTitle;
+    color: #f46c0f;
+}
+
+.successTitle  {
+    @extend .messageTitle;
+    color: green;
+}
+
+.message {
+    font: "Roboto Black";
+    font-size: 16px;
+    color: black;
+    padding-top: 24px;
+    padding-left: 56px;
+    padding-right: 40px;
+}
+
