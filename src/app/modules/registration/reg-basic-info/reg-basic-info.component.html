@@ -1,14 +1,14 @@
 <mat-card>
 	<form *ngIf="form" [formGroup]="form">
 		<mat-form-field>
-			<input matInput formControlName="firstname" placeholder="First name">
+			<input matInput #firstname formControlName="firstname" placeholder="First name">
 		</mat-form-field>
-		<mat-form-field style="padding-left: 60px">
+		<mat-form-field #lastname style="padding-left: 60px">
 			<input matInput formControlName="lastname" placeholder="Last name">
 		</mat-form-field>
 		<div>
 			<mat-form-field>
-				<input matInput [matDatepicker]="matDatePicker" placeholder="Date of Birth" formControlName="dob" readonly="">
+				<input matInput #dob [matDatepicker]="matDatePicker" placeholder="Date of Birth" formControlName="dob" readonly="">
 				<mat-datepicker-toggle [for]=
 					"matDatePicker" matSuffix></mat-datepicker-toggle>
 				<mat-datepicker #matDatePicker></mat-datepicker>
@@ -16,7 +16,7 @@
 		</div>
 		<div style="padding-right: 20px">
 			<mat-placeholder>Gender: </mat-placeholder>
-			<mat-radio-group layout="row" style="padding-right: 20px">
+			<mat-radio-group *ngIf="genders" #gender layout="row" style="padding-right: 20px">
 				<mat-radio-button *ngFor="let gender of genders" [value]="gender" style="padding-right: 20px" [checked]="genderControl.value.id === gender.id" (change)="onGenderChange(gender)
 				">
 					<span class="wrap-label-text">{{gender.description}}</span>

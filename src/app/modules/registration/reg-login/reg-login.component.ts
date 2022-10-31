@@ -77,7 +77,7 @@ export class RegLoginComponent {
     const param: DialogParameter = {
       messageType: 'Success',
       title: 'Great!',
-      message: 'You have create an account successfully.',
+      message: 'You have created an account successfully.',
       showCancel: false,
       showOK: true,
       okReturnValue: true,

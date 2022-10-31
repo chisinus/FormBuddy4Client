@@ -10,6 +10,12 @@ import { SharedModule } from '@shared/shared.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormBuddyDialogComponent } from '@shared/components/fb-dialog/fb-dialog.component';
+import { StoreModule } from '@ngrx/store';
+import { RegistrationStoreReducer } from './reg-store/reg-reducers';
+import { RegistrationStoreService } from './services/reg-store.service';
+import { EffectsModule } from '@ngrx/effects';
+import { RegistrationStoreEffect } from './reg-store/reg-effects';
+import { CodeTableService } from '@shared/services/code-table.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,9 @@ import { FormBuddyDialogComponent } from '@shared/components/fb-dialog/fb-dialog
     RegistrationRoutingModule,
     SharedModule,
     MatNativeDateModule,
+    StoreModule.forFeature('registration', RegistrationStoreReducer),
+    EffectsModule.forFeature([RegistrationStoreEffect]),
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule, RegistrationStoreService, CodeTableService],
 })
 export class RegistrationModule {}

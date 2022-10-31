@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SecurityQuestion } from '@shared/models/code-tables';
+import { Subscription } from 'rxjs';
+import { RegistrationStoreService } from '../services/reg-store.service';
 
 @Component({
   selector: 'app-reg-security-question',
@@ -8,26 +10,22 @@ import { SecurityQuestion } from '@shared/models/code-tables';
   styleUrls: ['./reg-security-question.component.scss'],
 })
 export class RegSecurityQuestionComponent implements OnInit {
-  securityQuestions: SecurityQuestion[] = [
-    {
-      id: 1,
-      description: 'security question 1',
-    },
-    {
-      id: 2,
-      description: 'security question 2',
-    },
-    {
-      id: 3,
-      description: 'security question 3',
-    },
-  ];
+  securityQuestions?: SecurityQuestion[];
+  subscription: Subscription = new Subscription();
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private storeService: RegistrationStoreService
+  ) {}
 
   public form: FormGroup = this.formBuilder.group({
     securityQuestion: [0, Validators.required],
     answer: ['', Validators.required],
   });
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.storeService.RegistrationState$.subscribe((state) => {
+      this.securityQuestions = state.securityQuestions;
+    });
+  }
 }
