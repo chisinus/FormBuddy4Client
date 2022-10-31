@@ -9,6 +9,7 @@ import {
 import { RegistrationState } from './reg-state';
 
 export const initialState: RegistrationState = {
+  criticalError: false,
   genders: [],
   securityQuestions: [],
 };
@@ -26,6 +27,7 @@ export const RegistrationStoreReducer = createReducer(
     securityQuestions,
   })),
   on(retrieveError, (state) => ({
-    ...initialState,
+    ...state,
+    criticalError: true,
   }))
 );

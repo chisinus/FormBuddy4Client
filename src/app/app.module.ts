@@ -17,6 +17,10 @@ import { TermsConditionComponent } from './modules/misc/terms-condition/terms-co
 import { RegistrationModule } from './modules/registration/registration.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from '@shared/interceptors/error.interceptor';
+import { LoggingService } from '@shared/services/logging.service';
+import { BasicInterceptor } from '@shared/interceptors/basic.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    LoggingService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Gender } from '@shared/models/code-tables';
 import { of, switchMap, tap } from 'rxjs';
 import {
+  retrieveError,
   retrieveGenders,
   retrieveSecurityQuestions,
 } from '../reg-store/reg-actions';
@@ -22,5 +23,10 @@ export class RegistrationStoreService {
       if (!state.securityQuestions || state.securityQuestions.length === 0)
         this.store.dispatch(retrieveSecurityQuestions());
     });
+  }
+
+  updateCriticalError(status: boolean) {
+    console.log('in updatecriticalerror', status);
+    this.store.dispatch(retrieveError());
   }
 }

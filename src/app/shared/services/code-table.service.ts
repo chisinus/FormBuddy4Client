@@ -11,6 +11,15 @@ export class CodeTableService {
 
   getGenders(): Observable<Gender[]> {
     return this.apiService.get(this.rootPath + '/genders');
+    // this.apiService
+    //   .get(this.rootPath + '/genders')
+    //   .subscribe(() => console.log('11111111111111'));
+    // return of([
+    //   {
+    //     id: 1,
+    //     description: '2222',
+    //   },
+    // ]);
   }
 
   getSecurityQuestions(): Observable<SecurityQuestion[]> {
