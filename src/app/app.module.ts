@@ -17,7 +17,6 @@ import { TermsConditionComponent } from './modules/misc/terms-condition/terms-co
 import { RegistrationModule } from './modules/registration/registration.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { RegistrationStoreEffect } from './modules/registration/reg-store/reg-effects';
 
 @NgModule({
   declarations: [

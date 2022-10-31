@@ -1,18 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Gender, SecurityQuestion } from '@shared/models/code-tables';
-import { MiscService } from '@shared/services/misc.service';
-import {
-  catchError,
-  EMPTY,
-  map,
-  mergeMap,
-  Observable,
-  of,
-  switchMap,
-  tap,
-  withLatestFrom,
-} from 'rxjs';
+import { CodeTableService } from '@shared/services/code-table.service';
+import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
 import {
   retrieveError,
   retrieveGenders,
@@ -23,7 +13,7 @@ import {
 
 @Injectable()
 export class RegistrationStoreEffect {
-  constructor(private actions$: Actions, private service: MiscService) {}
+  constructor(private actions$: Actions, private service: CodeTableService) {}
 
   loadGenders$ = createEffect(() =>
     this.actions$.pipe(
