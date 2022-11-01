@@ -20,4 +20,12 @@ export class ApiService {
       })
     );
   }
+
+  post(path: string, data: any): Observable<any> {
+    return this.getApplicationConfig().pipe(
+      switchMap((config) => {
+        return this.http.post(config.AppRootUrl + path, data);
+      })
+    );
+  }
 }

@@ -21,10 +21,7 @@ export class RegistrationComponent implements OnInit {
   state: string = '';
   completed: boolean = false;
 
-  constructor(
-    private _formBuilder: FormBuilder,
-    private storeService: RegistrationStoreService
-  ) {}
+  constructor(private storeService: RegistrationStoreService) {}
 
   ngOnInit(): void {
     this.storeService.initStore();

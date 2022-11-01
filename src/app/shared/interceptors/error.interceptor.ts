@@ -27,7 +27,6 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.log('11111111111111111111111111111111');
         if (error.status === 401) this.router.navigate(['unauthenticated']);
         else {
           const loggingService: LoggingService =
@@ -35,20 +34,23 @@ export class ErrorInterceptor implements HttpInterceptor {
           loggingService.logging(error.error);
         }
 
-        this.regStoreService.updateCriticalError(true);
+        // allow caller to handle error
+        return throwError(() => error);
 
-        let errorMsg = '';
-        if (error.error instanceof ErrorEvent) {
-          errorMsg = `Error: ${error.error.message}`;
-        } else {
-          errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-        }
-        this.snackBar.open(errorMsg, 'close', {
-          duration: 2000,
-          panelClass: 'errorSnack',
-        });
+        // this.regStoreService.updateCriticalError(true);
 
-        return throwError(() => errorMsg);
+        // let errorMsg = '';
+        // if (error.error instanceof ErrorEvent) {
+        //   errorMsg = `Error: ${error.error.message}`;
+        // } else {
+        //   errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+        // }
+        // this.snackBar.open(errorMsg, 'close', {
+        //   duration: 2000,
+        //   panelClass: 'errorSnack',
+        // });
+
+        // return throwError(() => errorMsg);
       })
     );
   }

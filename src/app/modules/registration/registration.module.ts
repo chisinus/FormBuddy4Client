@@ -16,6 +16,7 @@ import { RegistrationStoreService } from './services/reg-store.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegistrationStoreEffect } from './reg-store/reg-effects';
 import { CodeTableService } from '@shared/services/code-table.service';
+import { RegistrationService } from './services/registration.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,11 @@ import { CodeTableService } from '@shared/services/code-table.service';
     StoreModule.forFeature('registration', RegistrationStoreReducer),
     EffectsModule.forFeature([RegistrationStoreEffect]),
   ],
-  providers: [MatDatepickerModule, RegistrationStoreService, CodeTableService],
+  providers: [
+    MatDatepickerModule,
+    RegistrationStoreService,
+    RegistrationService,
+    CodeTableService,
+  ],
 })
 export class RegistrationModule {}

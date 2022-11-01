@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { RegistrationStoreService } from '../services/reg-store.service';
 
 @Component({
-  selector: 'app-reg-security-question',
+  selector: 'reg-security-question',
   templateUrl: './reg-security-question.component.html',
   styleUrls: ['./reg-security-question.component.scss'],
 })

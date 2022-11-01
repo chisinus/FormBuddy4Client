@@ -1,18 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { Gender, SecurityQuestion } from '@shared/models/code-tables';
 import { CodeTableService } from '@shared/services/code-table.service';
-import {
-  catchError,
-  map,
-  mergeMap,
-  of,
-  switchMap,
-  tap,
-  withLatestFrom,
-} from 'rxjs';
-import { RegistrationRoutingModule } from '../registration-routing.module';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { RegistrationStoreService } from '../services/reg-store.service';
 import {
   retrieveError,
   retrieveGenders,
@@ -20,33 +11,25 @@ import {
   retrieveSecurityQuestions,
   retrieveSecurityQuestionsSuccess,
 } from './reg-actions';
-import { RegistrationState } from './reg-state';
 
 @Injectable()
 export class RegistrationStoreEffect {
   constructor(
     private actions$: Actions,
-    private store$: Store<RegistrationState>,
+    private storeService: RegistrationStoreService,
     private service: CodeTableService
   ) {}
 
   loadGenders$ = createEffect(() =>
     this.actions$.pipe(
-      // tap(
-      //   this.store$.subscribe((state) =>
-      //     console.log('>>>>>>>>>>>>>>>> criticalError ', state.criticalError)
-      //   )
-      // ),
+      tap(),
       ofType(retrieveGenders),
-      // withLatestFrom(this.store$.select((s) => !s.criticalError)),
       switchMap(() => {
-        console.log('>>>>>>>>>>> get gender');
         return this.service.getGenders().pipe(
           map((genders: Gender[]) => {
             return retrieveGendersSuccess({ genders });
           }),
-          // intercepted by interceptor?
-          catchError(() => {
+          catchError((error) => {
             return of(retrieveError());
           })
         );
@@ -57,7 +40,7 @@ export class RegistrationStoreEffect {
   loadSecurityQuestions$ = createEffect(() =>
     this.actions$.pipe(
       ofType(retrieveSecurityQuestions),
-      mergeMap(() => {
+      switchMap(() => {
         return this.service.getSecurityQuestions().pipe(
           map((data: SecurityQuestion[]) =>
             retrieveSecurityQuestionsSuccess({ securityQuestions: data })

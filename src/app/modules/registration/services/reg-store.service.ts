@@ -18,6 +18,8 @@ export class RegistrationStoreService {
 
   initStore(): void {
     this.RegistrationState$.subscribe((state) => {
+      if (state.criticalError) return;
+
       if (!state || !state.genders.length)
         this.store.dispatch(retrieveGenders());
       if (!state.securityQuestions || state.securityQuestions.length === 0)
@@ -26,7 +28,6 @@ export class RegistrationStoreService {
   }
 
   updateCriticalError(status: boolean) {
-    console.log('in updatecriticalerror', status);
     this.store.dispatch(retrieveError());
   }
 }
