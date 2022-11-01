@@ -42,13 +42,13 @@ export class RegLoginComponent implements OnDestroy {
 
   public form: FormGroup = this.formBuilder.group({
     username: [
-      'user11',
+      '',
       [Validators.required, Validators.minLength(4), this.usernameValidator()],
     ],
     passwordGroup: this.formBuilder.group(
       {
-        password: ['aaaaaa$A', [Validators.required, Validators.minLength(8)]],
-        confirmPassword: ['aaaaaa$A', Validators.required],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', Validators.required],
       },
       { validator: [this.passwordValidator()] }
     ),
