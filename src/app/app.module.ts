@@ -21,6 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from '@shared/interceptors/error.interceptor';
 import { LoggingService } from '@shared/services/logging.service';
 import { BasicInterceptor } from '@shared/interceptors/basic.interceptor';
+import { UserStoreService } from './modules/user/services/user-store.service';
+import { UserService } from './modules/user/services/user.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { BasicInterceptor } from '@shared/interceptors/basic.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: BasicInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     LoggingService,
+    UserStoreService,
+    UserService,
   ],
   bootstrap: [AppComponent],
 })
