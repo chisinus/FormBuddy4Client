@@ -23,6 +23,7 @@ import { LoggingService } from '@shared/services/logging.service';
 import { BasicInterceptor } from '@shared/interceptors/basic.interceptor';
 import { UserStoreService } from './modules/user/services/user-store.service';
 import { UserService } from './modules/user/services/user.service';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UserService } from './modules/user/services/user.service';
     BrowserAnimationsModule,
     SharedModule,
     RegistrationModule,
+    UserModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
   ],

@@ -10,3 +10,7 @@ export const loginSuccess = createAction(
   props<{ userBasic: UserBasic }>()
 );
 export const userError = createAction('[User] Error');
+export const updateLoading = createAction(
+  '[User] Update loading status',
+  props<{ loading: boolean }>()
+);

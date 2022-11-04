@@ -14,9 +14,9 @@ import { FormBuddyDialogComponent } from '@shared/components/fb-dialog/fb-dialog
 import { DialogParameter } from '@shared/models/dialog-parameter';
 import { Subscription } from 'rxjs';
 import { RegBasicInfoComponent } from '../reg-basic-info/reg-basic-info.component';
-import { RegSecurityQuestionComponent } from '../reg-security-question/reg-security-question.component';
-import { RegistrationService } from '../services/registration.service';
-import { UserFull } from '../models/user-full';
+import { RegSecurityQuestionComponent } from '../../reg-security-question/reg-security-question.component';
+import { RegistrationService } from '../../services/registration.service';
+import { UserFull } from '../../models/user-full';
 
 @Component({
   selector: 'reg-login',
@@ -104,7 +104,6 @@ export class RegLoginComponent implements OnDestroy {
       securityQuestionAnswer:
         this.regSecurityQuestionComponent.form.controls['answer'].value,
     };
-    console.log(user);
 
     this.subscription.add(
       this.regService.createAccount(user).subscribe({

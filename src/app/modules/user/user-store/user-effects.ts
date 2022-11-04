@@ -8,25 +8,18 @@ import { login, loginSuccess, userError } from './user-actions';
 
 @Injectable()
 export class UserEffect {
-  constructor(
-    private actions$: Actions,
-    private storeService: UserStoreService,
-    private userService: UserService
-  ) {}
+  constructor(private actions$: Actions, private userService: UserService) {}
 
   loadUser$ = createEffect(() =>
     this.actions$.pipe(
       tap(),
       ofType(login),
       switchMap((action) => {
-        console.log('in effect');
         return this.userService.login(action.username, action.password).pipe(
           map((userBasic: UserBasic) => {
-            console.log('success');
             return loginSuccess({ userBasic });
           }),
           catchError(() => {
-            console.log('failed');
             return of(userError());
           })
         );

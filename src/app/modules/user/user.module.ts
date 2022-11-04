@@ -9,9 +9,10 @@ import { UserReducer } from './user-store/user-reducers';
 import { UserEffect } from './user-store/user-effects';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
+import { UserHomeComponent } from './components/user-home/user-home.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [UserHomeComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

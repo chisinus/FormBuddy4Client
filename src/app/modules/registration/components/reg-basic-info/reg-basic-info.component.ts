@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Gender } from '@shared/models/code-tables';
 import { Observable, of, Subscription } from 'rxjs';
-import { RegistrationStoreService } from '../services/reg-store.service';
+import { RegistrationStoreService } from '../../services/reg-store.service';
 
 @Component({
   selector: 'reg-basic-info',
