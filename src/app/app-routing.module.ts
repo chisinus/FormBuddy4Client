@@ -28,6 +28,11 @@ const appRoutes: Routes = [
     ],
   },
   {
+    path: 'user',
+    loadChildren: () =>
+      import('./modules/user/user.module').then((u) => u.UserModule),
+  },
+  {
     path: 'test',
     loadChildren: () =>
       import('./modules/test/test.module').then((m) => m.TestModule),

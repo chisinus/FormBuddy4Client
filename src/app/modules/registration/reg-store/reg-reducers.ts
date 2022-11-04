@@ -1,9 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import {
   retrieveError,
-  retrieveGenders,
   retrieveGendersSuccess,
-  retrieveSecurityQuestions,
   retrieveSecurityQuestionsSuccess,
 } from './reg-actions';
 import { RegistrationState } from './reg-state';
@@ -22,12 +20,16 @@ export const RegistrationStoreReducer = createReducer(
       genders,
     };
   }),
-  on(retrieveSecurityQuestionsSuccess, (state, { securityQuestions }) => ({
-    ...state,
-    securityQuestions,
-  })),
-  on(retrieveError, (state) => ({
-    ...state,
-    criticalError: true,
-  }))
+  on(retrieveSecurityQuestionsSuccess, (state, { securityQuestions }) => {
+    return {
+      ...state,
+      securityQuestions,
+    };
+  }),
+  on(retrieveError, (state) => {
+    return {
+      ...state,
+      criticalError: true,
+    };
+  })
 );
