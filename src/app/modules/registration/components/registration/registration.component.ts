@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegBasicInfoComponent } from '../components/reg-basic-info/reg-basic-info.component';
-import { RegLoginComponent } from '../components/reg-login/reg-login.component';
+import { RegBasicInfoComponent } from '../reg-basic-info/reg-basic-info.component';
+import { RegLoginComponent } from '../reg-login/reg-login.component';
 import { RegSecurityQuestionComponent } from '../reg-security-question/reg-security-question.component';
-import { RegistrationStoreService } from '../services/reg-store.service';
+import { RegistrationStoreService } from '../../services/reg-store.service';
 
 @Component({
   selector: 'app-registration',

@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegBasicInfoComponent } from './components/reg-basic-info/reg-basic-info.component';
-import { RegSecurityQuestionComponent } from './reg-security-question/reg-security-question.component';
+import { RegSecurityQuestionComponent } from './components/reg-security-question/reg-security-question.component';
 import { RegLoginComponent } from './components/reg-login/reg-login.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 import { SharedModule } from '@shared/shared.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SecurityQuestion } from '@shared/models/code-tables';
 import { Subscription } from 'rxjs';
-import { RegistrationStoreService } from '../services/reg-store.service';
+import { RegistrationStoreService } from '../../services/reg-store.service';
 
 @Component({
   selector: 'reg-security-question',
