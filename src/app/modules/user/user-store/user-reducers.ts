@@ -17,7 +17,6 @@ export const initialState: UserState = {
 export const UserReducer = createReducer(
   initialState,
   on(loginSuccess, (state, { userBasic }) => {
-    console.log('success');
     return {
       user: userBasic,
       criticalError: false,
@@ -25,7 +24,6 @@ export const UserReducer = createReducer(
     };
   }),
   on(userError, (state) => {
-    console.log('error');
     return {
       ...initialState,
       critcalError: true,
