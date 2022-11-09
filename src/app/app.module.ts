@@ -3,10 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './modules/misc/login/login.component';
 import { SharedModule } from '@shared/shared.module';
-import { RouterModule } from '@angular/router';
 import { LayoutFooterComponent } from '@shared/components/layout/layout-footer/layout-footer.component';
 import { LayoutHeaderComponent } from '@shared/components/layout/layout-header/layout-header.component';
 import { LayoutInsideComponent } from '@shared/components/layout/layout-inside/layout-inside.component';
@@ -24,6 +22,8 @@ import { BasicInterceptor } from '@shared/interceptors/basic.interceptor';
 import { UserStoreService } from './modules/user/services/user-store.service';
 import { UserService } from './modules/user/services/user.service';
 import { UserModule } from './modules/user/user.module';
+import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
+import { SpinnerService } from '@shared/services/spinner.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { UserModule } from './modules/user/user.module';
     ContactUsComponent,
     PrivacyComponent,
     TermsConditionComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +54,7 @@ import { UserModule } from './modules/user/user.module';
     LoggingService,
     UserStoreService,
     UserService,
+    SpinnerService,
   ],
   bootstrap: [AppComponent],
 })

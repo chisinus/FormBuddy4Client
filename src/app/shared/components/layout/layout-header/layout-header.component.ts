@@ -1,16 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserStoreService } from 'src/app/modules/user/services/user-store.service';
 
 @Component({
   selector: 'app-layout-header',
   templateUrl: './layout-header.component.html',
   styleUrls: ['./layout-header.component.scss'],
 })
-export class LayoutHeaderComponent implements OnInit {
-  constructor() {}
+export class LayoutHeaderComponent {
+  @Input() loggedIn: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(
+    private userStoreService: UserStoreService,
+    private router: Router
+  ) {}
 
-  LoggedIn(): boolean {
-    return true;
+  onProfile(): void {}
+
+  onLogout(): void {
+    this.userStoreService.logout();
+    this.router.navigate(['.']);
   }
 }

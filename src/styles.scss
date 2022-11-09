@@ -56,3 +56,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button.nextButton {
   float: right;
 }
+
+.spinnercenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #3fb53f;
+ }

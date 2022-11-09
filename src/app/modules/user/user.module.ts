@@ -10,6 +10,7 @@ import { UserEffect } from './user-store/user-effects';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { UserGuardService } from '@shared/guards/user-guard.service';
 
 @NgModule({
   declarations: [UserHomeComponent],
@@ -20,6 +21,6 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
     StoreModule.forFeature('user', UserReducer),
     EffectsModule.forFeature([UserEffect]),
   ],
-  providers: [UserService, UserStoreService],
+  providers: [UserService, UserStoreService, UserGuardService],
 })
 export class UserModule {}
