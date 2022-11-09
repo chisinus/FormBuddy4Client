@@ -14,3 +14,4 @@ export const updateLoading = createAction(
   '[User] Update loading status',
   props<{ loading: boolean }>()
 );
+export const logout = createAction('[User] Logout');

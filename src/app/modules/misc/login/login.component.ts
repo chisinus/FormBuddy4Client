@@ -19,8 +19,8 @@ import { UserState } from '../../user/user-store/user-state';
 })
 export class LoginComponent implements OnDestroy {
   form: UntypedFormGroup = this.formBuilder.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required],
+    username: ['xiajun', Validators.required],
+    password: ['1', Validators.required],
   });
   showPassword: boolean = false;
   error: string = '';
@@ -34,6 +34,7 @@ export class LoginComponent implements OnDestroy {
   ) {}
 
   ngOnDestroy(): void {
+    this.snakebar.dismiss();
     this.subscription.unsubscribe();
   }
 
@@ -47,15 +48,17 @@ export class LoginComponent implements OnDestroy {
       this.passwordControl.value
     );
 
-    this.storeService.userState$.subscribe((state: UserState) => {
-      if (state.loading) return;
+    this.subscription.add(
+      this.storeService.userState$.subscribe((state: UserState) => {
+        if (state.loading) return;
 
-      if (state.user.username) {
-        this.router.navigate(['user/userhome']);
-      } else {
-        this.showLoginError();
-      }
-    });
+        if (state.user.username) {
+          this.router.navigate(['user/userhome']);
+        } else {
+          this.showLoginError();
+        }
+      })
+    );
   }
 
   showLoginError(): void {
@@ -67,9 +70,11 @@ export class LoginComponent implements OnDestroy {
       }
     );
 
-    sb.onAction().subscribe(() => {
-      sb.dismiss();
-    });
+    this.subscription.add(
+      sb.onAction().subscribe(() => {
+        sb.dismiss();
+      })
+    );
   }
 
   // get

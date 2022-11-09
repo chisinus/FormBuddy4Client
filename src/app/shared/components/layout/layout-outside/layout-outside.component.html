@@ -1,8 +1,9 @@
 <mat-sidenav-container class="all-wrap" fullscreen>
   <div class="page-wrap">
-    <app-layout-header></app-layout-header>
+    <app-layout-header [loggedIn]="false"></app-layout-header>
     <main class="content">
       <router-outlet></router-outlet>
+      <app-spinner></app-spinner>
     </main>
     <app-layout-footer></app-layout-footer>
   </div>

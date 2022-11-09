@@ -4,12 +4,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './layout-inside.component.html',
   styleUrls: ['./layout-inside.component.scss'],
 })
-export class LayoutInsideComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  profile(): void {}
-
-  logout(): void {}
-}
+export class LayoutInsideComponent {}

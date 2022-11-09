@@ -1,7 +1,13 @@
 import { UserState } from './user-state';
 import { UserBasic } from '../models/user-basic';
 import { createReducer, on } from '@ngrx/store';
-import { login, loginSuccess, updateLoading, userError } from './user-actions';
+import {
+  login,
+  loginSuccess,
+  logout,
+  updateLoading,
+  userError,
+} from './user-actions';
 import { state } from '@angular/animations';
 
 export const initialState: UserState = {
@@ -33,6 +39,11 @@ export const UserReducer = createReducer(
     return {
       ...state,
       loading,
+    };
+  }),
+  on(logout, (state) => {
+    return {
+      ...initialState,
     };
   })
 );
